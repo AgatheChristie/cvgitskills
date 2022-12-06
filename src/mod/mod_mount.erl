@@ -17,6 +17,7 @@ start(PlayerId) ->
     gen_server:start_link(?MODULE, [PlayerId], []).
 
 init([PlayerId]) ->
+    ?I("MODULE:~p PID:~p end",[?MODULE,self()]),
     {ok, PlayerId}.
 
 handle_cast(_Reason , PlayerId) ->

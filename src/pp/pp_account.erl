@@ -20,27 +20,29 @@ handle(10000, [], Data) ->
     end;
 
 %% 获取角色列表
-handle(10002, Socket, Accname) 
- when is_list(Accname) ->
+handle(10002, Socket, Accname)
+    when is_list(Accname) ->
     L = lib_account:get_role_list(Accname),
     {ok, BinData} = pt_10:write(10002, L),
     lib_send:send_one(Socket, BinData);
 
 %% 创建角色
-handle(10003, Socket, [Accid, Accname, Realm, Career, Sex, Name])
-when is_list(Accname), is_list(Name)->
+handle(10003, Socket, [Accid, Accname, Realm, Career, Sex, Name]) when is_list(Accname), is_list(Name) ->
     ?I("create role ~p~n", [[Accid, Accname, Realm, Career, Sex, Name]]),
     case validate_name(Name) of  %% 角色名合法性检测
         {false, Msg} ->
+            ?I("qqqq:~p end", [Msg]),
             {ok, BinData} = pt_10:write(10003, {Msg, 0}),
             lib_send:send_one(Socket, BinData);
         true ->
             case lib_account:create_role(Accid, Accname, Name, Realm, Career, Sex) of
                 {true, Id} ->
+                    ?I("qqqq:~p end", [true]),
                     %%创建角色成功
                     {ok, BinData} = pt_10:write(10003, {1, Id}),
                     lib_send:send_one(Socket, BinData);
                 false ->
+                    ?I("qqqq:~p end", [false]),
                     %%角色创建失败
                     {ok, BinData} = pt_10:write(10003, {0, 0}),
                     lib_send:send_one(Socket, BinData)
@@ -74,7 +76,7 @@ is_bad_pass([_Accid, _Accname, _Tstamp, _Ts]) ->
 %%    Hex = util:md5(Md5),
 %%    %%?DEBUG("~p~n~p~n", [Md5, Hex]),
 %%    Hex == Ts.
-  true.
+    true.
 
 %% 角色名合法性检测
 validate_name(Name) ->
@@ -83,20 +85,15 @@ validate_name(Name) ->
 %% 角色名合法性检测:长度
 validate_name(len, Name) ->
     ?I("~p~n", [Name]),
-    case asn1rt:utf8_binary_to_list(list_to_binary(Name)) of
-        {ok, CharList} ->
-            Len = string_width(CharList),   
-            case Len < 11 andalso Len > 1 of
-                true ->
-                    validate_name(existed, Name);
-                false ->
-                    %%角色名称长度为1~5个汉字
-                    {false, 5}
-            end;
-        {error, _Reason} ->
-            %%非法字符
-            {false, 4}
-    end; 
+    Len = string_width(Name),
+    case Len < 11 andalso Len > 1 of
+        true ->
+            validate_name(existed, Name);
+        false ->
+            %%角色名称长度为1~5个汉字
+            {false, 5}
+    end;
+
 
 %%判断角色名是否已经存在
 %%Name:角色名
@@ -104,7 +101,7 @@ validate_name(existed, Name) ->
     case lib_player:is_exists(Name) of
         true ->
             %角色名称已经被使用
-            {false, 3};    
+            {false, 3};
         false ->
             true
     end;

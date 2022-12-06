@@ -14,7 +14,7 @@
 -define(PORT, 7788).
 -define(I(F),io:format("%% [~w~w:~w] "++F++"~n",[self(),?MODULE,?LINE])).
 -define(I(F,A),io:format("%% [~w~w:~w] "++F++"~n",[self(),?MODULE,?LINE|A])).
--define(RAND, 1565).
+-define(RAND, rand:uniform(10000)).
 
 -record(state, {
   player_name = "",
@@ -44,6 +44,8 @@ start_link() ->
   end.
 
 init([Ip, Port]) ->
+ A =  [rand:uniform(10000),rand:uniform(10000),rand:uniform(10000),rand:uniform(10000),rand:uniform(10000),rand:uniform(10000)],
+  ?I("uniform:~p end", [A]),
   case gen_tcp:connect(Ip, Port,
             [binary, {packet, 0}, {active, false}, {reuseaddr, true}, {nodelay, false}, {delay_send, true}]) of
     {error, Reason} ->
@@ -73,7 +75,8 @@ handle_cast({update_state, Key, Value}, State) ->
 
 handle_cast({create_role}, State) ->
   %% 随机名字
-  BinName = write_string("王" ++ integer_to_list(?RAND)),
+
+  BinName = write_string("asd" ++ integer_to_list(?RAND)),
   %% 阵营，职业，性别，名字
   Data = <<1:8, 1:8, 1:8, BinName/binary>>,
   send_msg(pack(10003, Data)),

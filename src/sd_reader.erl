@@ -31,6 +31,7 @@ start_link() ->
 %%Port:端口
 init() ->
     process_flag(trap_exit, true),
+    ?I("sd_reader process pid:~p end",[self()]),
     Client = #client{
         player = none,
         login = 0,
@@ -65,7 +66,7 @@ login_parse_packet(Socket, Client) ->
                     Ref1 = async_recv(Socket, BodyLen, ?TCP_TIMEOUT),
                     receive
                         {inet_async, Socket, Ref1, {ok, Binary}} ->
-                            ?I("Len:~p Cmd:~p end",[Binary,qqq]), %% Binary 的长度刚好是 BodyLen
+                            ?I("Binary:~p end",[Binary]), %% Binary 的长度刚好是 BodyLen
                             case routing(Cmd, Binary) of
                                 %%先验证登陆
                                 {ok, login, Data} ->
@@ -98,6 +99,7 @@ login_parse_packet(Socket, Client) ->
                                 {ok, create, Data} ->
                                     case Client#client.login == 1 of
                                         true ->
+                                            ?I("create client ~p end", [create]),
                                             Data1 = [Client#client.accid, Client#client.accname] ++ Data,
                                             pp_account:handle(10003, Socket, Data1),
                                             login_parse_packet(Socket, Client);
@@ -146,12 +148,14 @@ login_parse_packet(Socket, Client) ->
                             pp_account:handle(Cmd, Socket, Client#client.accname),
                             login_parse_packet(Socket, Client);
                         false ->
+                            ?I("false:~p false:~p end",[false,false]),
                             login_lost(Socket, Client, 0, "login fail")
                     end
             end;
 
          %%超时处理
         {inet_async, Socket, Ref, {error, timeout}} ->
+            ?I("inet_async:~p timeout:~p end",[inet_async,timeout]),
             case Client#client.timeout >= ?HEART_TIMEOUT_TIME of
                 true ->
                     login_lost(Socket, Client, 0, {error, timeout});
@@ -162,6 +166,7 @@ login_parse_packet(Socket, Client) ->
 
          %%用户断开连接或出错
         Other ->
+            ?I("Other:~p Cmd:~p end",[Other,qqq]),
             login_lost(Socket, Client, 0, Other)
     end.
 
@@ -224,6 +229,7 @@ do_parse_packet(Socket, Client) ->
 
 %%断开连接
 login_lost(Socket, _Client, _Cmd, Reason) ->
+    ?I("login_lost Reason:~p end",[Reason]),
     gen_tcp:close(Socket),
     exit({unexpected_message, Reason}).
 
@@ -236,12 +242,12 @@ do_lost(_Socket, Client, _Cmd, Reason) ->
 %%组成如:pt_10:read
 routing(Cmd, Binary) ->
     %%取前面二位区分功能类型
-    ?I("recevie cmd ~p~n", [Cmd]),
+    ?I("routing cmd ~p~n", [Cmd]),
     [H1, H2, _, _, _] = integer_to_list(Cmd),
     Module = list_to_atom("pt_" ++ [H1, H2]),
-    ?I("recevie Module ~p~n", [Module]),
+    ?I("routing Module ~p~n", [Module]),
     DD = Module:read(Cmd, Binary),
-    ?I("recevie DD ~p~n", [DD]),
+    ?I("routing recevie:~p~n", [DD]),
     DD.
 
 %% 接受信息

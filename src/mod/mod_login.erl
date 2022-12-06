@@ -177,6 +177,7 @@ login_success(Player, Pid, Socket, LastLoginTime) ->
       Spirit, Att_area, Speed, AttSpeed, Equip, Quickbar, OnlineFlag, PetUpgradeQueNum] = Player,
     %% 打开广播信息进程
     Sid = lists:map(fun(_)-> spawn_link(fun()->send_msg(Socket) end) end,lists:duplicate(?SEND_MSG, 1)),
+    ?I("Sid:~p end",[Sid]),
     %% 打开战斗进程
     {ok, Bid} = mod_battle:start_link(),
     %% 创建物品模块PID

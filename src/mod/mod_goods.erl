@@ -16,6 +16,7 @@ start(PlayerId,CellNum, Equip) ->
     gen_server:start_link(?MODULE, [PlayerId,CellNum, Equip], []).
 
 init([PlayerId,CellNum, Equip]) ->
+    ?I("MODULE:~p PID:~p end",[?MODULE,self()]),
     ok = goods_util:init_goods_online(PlayerId),
     NullCells = goods_util:get_null_cells(PlayerId, CellNum),
     EquipSuit = goods_util:count_equip_suit_list(PlayerId, Equip),

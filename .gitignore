@@ -17,6 +17,7 @@ doc
 # cv self file
 *.dump
 ebin
+log
 cvSelfLogs
 cvSaslLogs
 cvLoggerLogs
