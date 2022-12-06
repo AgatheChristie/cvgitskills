@@ -1,0 +1,886 @@
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.012000 ===
+    supervisor: {local,logger_sup}
+    started: [{pid,<0.89.0>},
+              {id,error_logger},
+              {mfargs,{error_logger,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.035000 ===
+    supervisor: {local,sasl_safe_sup}
+    started: [{pid,<0.93.0>},
+              {id,alarm_handler},
+              {mfargs,{alarm_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.035000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.92.0>},
+              {id,sasl_safe_sup},
+              {mfargs,{supervisor,start_link,
+                                  [{local,sasl_safe_sup},sasl,safe]}},
+              {restart_type,permanent},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.039000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.94.0>},
+              {id,release_handler},
+              {mfargs,{release_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.039000 ===
+    application: sasl
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.109000 ===
+    supervisor: {local,inet_gethost_native_sup}
+    started: [{pid,<0.108.0>},{mfa,{inet_gethost_native,init,[[]]}}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.109000 ===
+    supervisor: {local,kernel_safe_sup}
+    started: [{pid,<0.107.0>},
+              {id,inet_gethost_native_sup},
+              {mfargs,{inet_gethost_native,start_link,[]}},
+              {restart_type,temporary},
+              {shutdown,1000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.721000 ===
+    application: crypto
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.840000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.121.0>},
+              {id,mod_kernel},
+              {mfargs,{mod_kernel,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.860000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.129.0>},
+              {id,mod_disperse},
+              {mfargs,{mod_disperse,start_link,["127.0.0.1",7788,1]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.860000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.132.0>},
+              {id,mod_rand},
+              {mfargs,{mod_rand,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.860000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.133.0>},
+              {id,sd_tcp_client_sup},
+              {mfargs,{sd_tcp_client_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.864000 ===
+    supervisor: {<0.134.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.135.0>},
+              {id,sd_tcp_acceptor_sup},
+              {mfargs,{sd_tcp_acceptor_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.864000 ===
+    supervisor: {<0.134.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.136.0>},
+              {id,sd_tcp_listener},
+              {mfargs,{sd_tcp_listener,start_link,[10,7788]}},
+              {restart_type,transient},
+              {shutdown,100},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.864000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.134.0>},
+              {id,sd_tcp_listener_sup},
+              {mfargs,{sd_tcp_listener_sup,start_link,[7788]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.864000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.147.0>},
+              {id,mod_mon_create},
+              {mfargs,{mod_mon_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.868000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.148.0>},
+              {id,mod_npc_create},
+              {mfargs,{mod_npc_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.891000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.149.0>},
+              {id,mod_scene},
+              {mfargs,{mod_scene,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.891000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.596.0>},
+              {id,mod_task},
+              {mfargs,{mod_task,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.899000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.597.0>},
+              {id,mod_guild},
+              {mfargs,{mod_guild,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.907000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.600.0>},
+              {id,mod_pet},
+              {mfargs,{mod_pet,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.907000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.604.0>},
+              {id,mod_mail},
+              {mfargs,{mod_mail,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.911000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.605.0>},
+              {id,mod_rank},
+              {mfargs,{mod_rank,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.914000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.607.0>},
+              {id,timer_frame},
+              {mfargs,{timer_frame,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:27:35.914000 ===
+    application: server
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.339000 ===
+    supervisor: {local,logger_sup}
+    started: [{pid,<0.89.0>},
+              {id,error_logger},
+              {mfargs,{error_logger,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.343000 ===
+    supervisor: {local,sasl_safe_sup}
+    started: [{pid,<0.92.0>},
+              {id,alarm_handler},
+              {mfargs,{alarm_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.343000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.91.0>},
+              {id,sasl_safe_sup},
+              {mfargs,{supervisor,start_link,
+                                  [{local,sasl_safe_sup},sasl,safe]}},
+              {restart_type,permanent},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.347000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.93.0>},
+              {id,release_handler},
+              {mfargs,{release_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.347000 ===
+    application: sasl
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.398000 ===
+    supervisor: {local,inet_gethost_native_sup}
+    started: [{pid,<0.108.0>},{mfa,{inet_gethost_native,init,[[]]}}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:43.398000 ===
+    supervisor: {local,kernel_safe_sup}
+    started: [{pid,<0.107.0>},
+              {id,inet_gethost_native_sup},
+              {mfargs,{inet_gethost_native,start_link,[]}},
+              {restart_type,temporary},
+              {shutdown,1000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.057000 ===
+    application: crypto
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.163000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.121.0>},
+              {id,mod_kernel},
+              {mfargs,{mod_kernel,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.202000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.129.0>},
+              {id,mod_disperse},
+              {mfargs,{mod_disperse,start_link,["127.0.0.1",7788,1]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.202000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.134.0>},
+              {id,mod_rand},
+              {mfargs,{mod_rand,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.206000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.135.0>},
+              {id,sd_tcp_client_sup},
+              {mfargs,{sd_tcp_client_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.206000 ===
+    supervisor: {<0.136.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.137.0>},
+              {id,sd_tcp_acceptor_sup},
+              {mfargs,{sd_tcp_acceptor_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.211000 ===
+    supervisor: {<0.136.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.138.0>},
+              {id,sd_tcp_listener},
+              {mfargs,{sd_tcp_listener,start_link,[10,7788]}},
+              {restart_type,transient},
+              {shutdown,100},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.212000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.136.0>},
+              {id,sd_tcp_listener_sup},
+              {mfargs,{sd_tcp_listener_sup,start_link,[7788]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.213000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.149.0>},
+              {id,mod_mon_create},
+              {mfargs,{mod_mon_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.214000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.150.0>},
+              {id,mod_npc_create},
+              {mfargs,{mod_npc_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.245000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.151.0>},
+              {id,mod_scene},
+              {mfargs,{mod_scene,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.246000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.598.0>},
+              {id,mod_task},
+              {mfargs,{mod_task,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.252000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.599.0>},
+              {id,mod_guild},
+              {mfargs,{mod_guild,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.256000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.602.0>},
+              {id,mod_pet},
+              {mfargs,{mod_pet,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.256000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.606.0>},
+              {id,mod_mail},
+              {mfargs,{mod_mail,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.260000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.607.0>},
+              {id,mod_rank},
+              {mfargs,{mod_rank,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.264000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.609.0>},
+              {id,timer_frame},
+              {mfargs,{timer_frame,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:34:44.264000 ===
+    application: server
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.485000 ===
+    supervisor: {local,logger_sup}
+    started: [{pid,<0.89.0>},
+              {id,error_logger},
+              {mfargs,{error_logger,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.488000 ===
+    supervisor: {local,sasl_safe_sup}
+    started: [{pid,<0.92.0>},
+              {id,alarm_handler},
+              {mfargs,{alarm_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.488000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.91.0>},
+              {id,sasl_safe_sup},
+              {mfargs,{supervisor,start_link,
+                                  [{local,sasl_safe_sup},sasl,safe]}},
+              {restart_type,permanent},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.492000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.93.0>},
+              {id,release_handler},
+              {mfargs,{release_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.492000 ===
+    application: sasl
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.539000 ===
+    supervisor: {local,inet_gethost_native_sup}
+    started: [{pid,<0.108.0>},{mfa,{inet_gethost_native,init,[[]]}}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:12.539000 ===
+    supervisor: {local,kernel_safe_sup}
+    started: [{pid,<0.107.0>},
+              {id,inet_gethost_native_sup},
+              {mfargs,{inet_gethost_native,start_link,[]}},
+              {restart_type,temporary},
+              {shutdown,1000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.276000 ===
+    application: crypto
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.370000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.121.0>},
+              {id,mod_kernel},
+              {mfargs,{mod_kernel,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.387000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.129.0>},
+              {id,mod_disperse},
+              {mfargs,{mod_disperse,start_link,["127.0.0.1",7788,1]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.390000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.134.0>},
+              {id,mod_rand},
+              {mfargs,{mod_rand,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.390000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.135.0>},
+              {id,sd_tcp_client_sup},
+              {mfargs,{sd_tcp_client_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.390000 ===
+    supervisor: {<0.136.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.137.0>},
+              {id,sd_tcp_acceptor_sup},
+              {mfargs,{sd_tcp_acceptor_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.396000 ===
+    supervisor: {<0.136.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.138.0>},
+              {id,sd_tcp_listener},
+              {mfargs,{sd_tcp_listener,start_link,[10,7788]}},
+              {restart_type,transient},
+              {shutdown,100},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.397000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.136.0>},
+              {id,sd_tcp_listener_sup},
+              {mfargs,{sd_tcp_listener_sup,start_link,[7788]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.398000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.149.0>},
+              {id,mod_mon_create},
+              {mfargs,{mod_mon_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.399000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.150.0>},
+              {id,mod_npc_create},
+              {mfargs,{mod_npc_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.429000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.151.0>},
+              {id,mod_scene},
+              {mfargs,{mod_scene,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.430000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.598.0>},
+              {id,mod_task},
+              {mfargs,{mod_task,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.436000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.599.0>},
+              {id,mod_guild},
+              {mfargs,{mod_guild,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.442000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.602.0>},
+              {id,mod_pet},
+              {mfargs,{mod_pet,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.442000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.606.0>},
+              {id,mod_mail},
+              {mfargs,{mod_mail,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.445000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.607.0>},
+              {id,mod_rank},
+              {mfargs,{mod_rank,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.449000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.609.0>},
+              {id,timer_frame},
+              {mfargs,{timer_frame,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::15:36:13.449000 ===
+    application: server
+    started_at: 'sd2@127.0.0.1'
+
+=CRASH REPORT==== 6-Dec-2022::16:43:58.473000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.766.0>
+    registered_name: []
+    exception exit: {unexpected_message,
+                        {inet_async,#Port<0.22>,0,{error,closed}}}
+      in function  sd_reader:login_lost/4 (src/sd_reader.erl, line 226)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.98.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.135.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 28
+    reductions: 3615
+  neighbours:
+
+=SUPERVISOR REPORT==== 6-Dec-2022::16:43:58.477000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {unexpected_message,{inet_async,#Port<0.22>,0,{error,closed}}}
+    offender: [{pid,<0.766.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.279000 ===
+    supervisor: {local,logger_sup}
+    started: [{pid,<0.89.0>},
+              {id,error_logger},
+              {mfargs,{error_logger,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.288000 ===
+    supervisor: {local,sasl_safe_sup}
+    started: [{pid,<0.93.0>},
+              {id,alarm_handler},
+              {mfargs,{alarm_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.288000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.92.0>},
+              {id,sasl_safe_sup},
+              {mfargs,{supervisor,start_link,
+                                  [{local,sasl_safe_sup},sasl,safe]}},
+              {restart_type,permanent},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.296000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.94.0>},
+              {id,release_handler},
+              {mfargs,{release_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.296000 ===
+    application: sasl
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.347000 ===
+    supervisor: {local,inet_gethost_native_sup}
+    started: [{pid,<0.108.0>},{mfa,{inet_gethost_native,init,[[]]}}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:41.347000 ===
+    supervisor: {local,kernel_safe_sup}
+    started: [{pid,<0.107.0>},
+              {id,inet_gethost_native_sup},
+              {mfargs,{inet_gethost_native,start_link,[]}},
+              {restart_type,temporary},
+              {shutdown,1000},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.081000 ===
+    application: crypto
+    started_at: 'sd2@127.0.0.1'
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.187000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.121.0>},
+              {id,mod_kernel},
+              {mfargs,{mod_kernel,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.226000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.129.0>},
+              {id,mod_disperse},
+              {mfargs,{mod_disperse,start_link,["127.0.0.1",7788,1]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.226000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.132.0>},
+              {id,mod_rand},
+              {mfargs,{mod_rand,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.226000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.133.0>},
+              {id,sd_tcp_client_sup},
+              {mfargs,{sd_tcp_client_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.230000 ===
+    supervisor: {<0.134.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.135.0>},
+              {id,sd_tcp_acceptor_sup},
+              {mfargs,{sd_tcp_acceptor_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.233000 ===
+    supervisor: {<0.134.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.136.0>},
+              {id,sd_tcp_listener},
+              {mfargs,{sd_tcp_listener,start_link,[10,7788]}},
+              {restart_type,transient},
+              {shutdown,100},
+              {child_type,worker}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.233000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.134.0>},
+              {id,sd_tcp_listener_sup},
+              {mfargs,{sd_tcp_listener_sup,start_link,[7788]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.233000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.147.0>},
+              {id,mod_mon_create},
+              {mfargs,{mod_mon_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.233000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.148.0>},
+              {id,mod_npc_create},
+              {mfargs,{mod_npc_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.260000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.149.0>},
+              {id,mod_scene},
+              {mfargs,{mod_scene,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.260000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.596.0>},
+              {id,mod_task},
+              {mfargs,{mod_task,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.283000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.597.0>},
+              {id,mod_guild},
+              {mfargs,{mod_guild,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.287000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.600.0>},
+              {id,mod_pet},
+              {mfargs,{mod_pet,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.291000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.604.0>},
+              {id,mod_mail},
+              {mfargs,{mod_mail,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.291000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.605.0>},
+              {id,mod_rank},
+              {mfargs,{mod_rank,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.299000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.607.0>},
+              {id,timer_frame},
+              {mfargs,{timer_frame,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+
+=PROGRESS REPORT==== 6-Dec-2022::16:44:42.303000 ===
+    application: server
+    started_at: 'sd2@127.0.0.1'
+
+=CRASH REPORT==== 6-Dec-2022::19:58:56.230000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.677.0>
+    registered_name: []
+    exception exit: {unexpected_message,
+                        {inet_async,#Port<0.18>,2,{error,closed}}}
+      in function  sd_reader:login_lost/4 (src/sd_reader.erl, line 228)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.99.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.133.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 28
+    reductions: 12272
+  neighbours:
+
+=SUPERVISOR REPORT==== 6-Dec-2022::19:58:56.236000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {unexpected_message,{inet_async,#Port<0.18>,2,{error,closed}}}
+    offender: [{pid,<0.677.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+
