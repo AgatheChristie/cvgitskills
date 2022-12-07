@@ -50,7 +50,7 @@
 -define(DB_HOST, "localhost").
 -define(DB_PORT, 3306).
 -define(DB_USER, "root").
--define(DB_PASS, "123456").
+-define(DB_PASS, "root").
 -define(DB_NAME, "sdzmmo").
 -define(DB_ENCODE, utf8).
 

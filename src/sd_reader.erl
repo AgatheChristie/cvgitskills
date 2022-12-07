@@ -57,7 +57,7 @@ login_parse_packet(Socket, Client) ->
             lib_send:send_one(Socket, ?FL_POLICY_FILE),
             gen_tcp:close(Socket);
 
-         %%登陆处理
+    %%登陆处理
         {inet_async, Socket, Ref, {ok, <<Len:16, Cmd:16>>}} ->
             ?I("Len:~p Cmd:~p end",[Len,Cmd]),
             BodyLen = Len - ?HEADER_LENGTH,
@@ -153,7 +153,7 @@ login_parse_packet(Socket, Client) ->
                     end
             end;
 
-         %%超时处理
+    %%超时处理
         {inet_async, Socket, Ref, {error, timeout}} ->
             ?I("inet_async:~p timeout:~p end",[inet_async,timeout]),
             case Client#client.timeout >= ?HEART_TIMEOUT_TIME of
@@ -164,7 +164,7 @@ login_parse_packet(Socket, Client) ->
                     login_parse_packet(Socket, Client#client{timeout = Client#client.timeout + 1})
             end;
 
-         %%用户断开连接或出错
+    %%用户断开连接或出错
         Other ->
             ?I("Other:~p Cmd:~p end",[Other,qqq]),
             login_lost(Socket, Client, 0, Other)

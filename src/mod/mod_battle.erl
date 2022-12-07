@@ -70,7 +70,7 @@ assist_skill(Pid, Data) ->
     gen_server:call(Pid, {assist_skill, Data}).
 
 init([]) ->
-    ?I("MODULE:~p PID:~p end",[?MODULE,self()]),
+   %% ?I("MODULE:~p PID:~p end",[?MODULE,self()]),
     State = #state{},
     {ok, State}.
 

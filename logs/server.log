@@ -884,3 +884,692 @@
                {shutdown,brutal_kill},
                {child_type,worker}]
 
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.001000 ===
+    supervisor: {local,logger_sup}
+    started: [{pid,<0.87.0>},
+              {id,error_logger},
+              {mfargs,{error_logger,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,2000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.008000 ===
+    supervisor: {local,sasl_safe_sup}
+    started: [{pid,<0.90.0>},
+              {id,alarm_handler},
+              {mfargs,{alarm_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.009000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.89.0>},
+              {id,sasl_safe_sup},
+              {mfargs,{supervisor,start_link,
+                                  [{local,sasl_safe_sup},sasl,safe]}},
+              {restart_type,permanent},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.023000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.91.0>},
+              {id,release_handler},
+              {mfargs,{release_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.024000 ===
+    application: sasl
+    started_at: 'sd2@127.0.0.1'
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.253000 ===
+    supervisor: {local,inet_gethost_native_sup}
+    started: [{pid,<0.106.0>},{mfa,{inet_gethost_native,init,[[]]}}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.253000 ===
+    supervisor: {local,kernel_safe_sup}
+    started: [{pid,<0.105.0>},
+              {id,inet_gethost_native_sup},
+              {mfargs,{inet_gethost_native,start_link,[]}},
+              {restart_type,temporary},
+              {shutdown,1000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.747000 ===
+    application: crypto
+    started_at: 'sd2@127.0.0.1'
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.785000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.119.0>},
+              {id,mod_kernel},
+              {mfargs,{mod_kernel,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.789000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.127.0>},
+              {id,mod_disperse},
+              {mfargs,{mod_disperse,start_link,["127.0.0.1",7788,1]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.790000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.128.0>},
+              {id,mod_rand},
+              {mfargs,{mod_rand,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.790000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.129.0>},
+              {id,sd_tcp_client_sup},
+              {mfargs,{sd_tcp_client_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.791000 ===
+    supervisor: {<0.130.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.131.0>},
+              {id,sd_tcp_acceptor_sup},
+              {mfargs,{sd_tcp_acceptor_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.793000 ===
+    supervisor: {<0.130.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.132.0>},
+              {id,sd_tcp_listener},
+              {mfargs,{sd_tcp_listener,start_link,[10,7788]}},
+              {restart_type,transient},
+              {shutdown,100},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.793000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.130.0>},
+              {id,sd_tcp_listener_sup},
+              {mfargs,{sd_tcp_listener_sup,start_link,[7788]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.794000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.143.0>},
+              {id,mod_mon_create},
+              {mfargs,{mod_mon_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.794000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.144.0>},
+              {id,mod_npc_create},
+              {mfargs,{mod_npc_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.816000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.145.0>},
+              {id,mod_scene},
+              {mfargs,{mod_scene,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.817000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.592.0>},
+              {id,mod_task},
+              {mfargs,{mod_task,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.822000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.593.0>},
+              {id,mod_guild},
+              {mfargs,{mod_guild,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.827000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.596.0>},
+              {id,mod_pet},
+              {mfargs,{mod_pet,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.828000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.600.0>},
+              {id,mod_mail},
+              {mfargs,{mod_mail,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.829000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.601.0>},
+              {id,mod_rank},
+              {mfargs,{mod_rank,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.832000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.603.0>},
+              {id,timer_frame},
+              {mfargs,{timer_frame,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::22:43:15.836000 ===
+    application: server
+    started_at: 'sd2@127.0.0.1'
+=CRASH REPORT==== 7-Dec-2022::22:53:39.160000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.605.0>
+    registered_name: []
+    exception throw: {enotconn}
+      in function  sd_reader:async_recv/3 (src/sd_reader.erl, line 270)
+      in call from sd_reader:login_parse_packet/2 (src/sd_reader.erl, line 51)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.97.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>,#Port<0.17>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 413
+  neighbours:
+
+=SUPERVISOR REPORT==== 7-Dec-2022::22:53:39.162000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {{nocatch,{enotconn}},
+             [{sd_reader,async_recv,3,[{file,"src/sd_reader.erl"},{line,270}]},
+              {sd_reader,login_parse_packet,2,
+                         [{file,"src/sd_reader.erl"},{line,51}]},
+              {proc_lib,init_p_do_apply,3,
+                        [{file,"proc_lib.erl"},{line,249}]}]}
+    offender: [{pid,<0.605.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 7-Dec-2022::22:54:46.770000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.751.0>
+    registered_name: []
+    exception throw: {enotconn}
+      in function  sd_reader:async_recv/3 (src/sd_reader.erl, line 270)
+      in call from sd_reader:login_parse_packet/2 (src/sd_reader.erl, line 51)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.97.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>,#Port<0.18>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 400
+  neighbours:
+
+=SUPERVISOR REPORT==== 7-Dec-2022::22:54:46.770000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {{nocatch,{enotconn}},
+             [{sd_reader,async_recv,3,[{file,"src/sd_reader.erl"},{line,270}]},
+              {sd_reader,login_parse_packet,2,
+                         [{file,"src/sd_reader.erl"},{line,51}]},
+              {proc_lib,init_p_do_apply,3,
+                        [{file,"proc_lib.erl"},{line,249}]}]}
+    offender: [{pid,<0.751.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 7-Dec-2022::22:58:31.373000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.763.0>
+    registered_name: []
+    exception throw: {enotconn}
+      in function  sd_reader:async_recv/3 (src/sd_reader.erl, line 270)
+      in call from sd_reader:login_parse_packet/2 (src/sd_reader.erl, line 51)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.97.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>,#Port<0.19>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 400
+  neighbours:
+
+=SUPERVISOR REPORT==== 7-Dec-2022::22:58:31.374000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {{nocatch,{enotconn}},
+             [{sd_reader,async_recv,3,[{file,"src/sd_reader.erl"},{line,270}]},
+              {sd_reader,login_parse_packet,2,
+                         [{file,"src/sd_reader.erl"},{line,51}]},
+              {proc_lib,init_p_do_apply,3,
+                        [{file,"proc_lib.erl"},{line,249}]}]}
+    offender: [{pid,<0.763.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 7-Dec-2022::22:59:06.225000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.825.0>
+    registered_name: []
+    exception throw: {enotconn}
+      in function  sd_reader:async_recv/3 (src/sd_reader.erl, line 270)
+      in call from sd_reader:login_parse_packet/2 (src/sd_reader.erl, line 51)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.97.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>,#Port<0.20>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 400
+  neighbours:
+
+=SUPERVISOR REPORT==== 7-Dec-2022::22:59:06.225000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {{nocatch,{enotconn}},
+             [{sd_reader,async_recv,3,[{file,"src/sd_reader.erl"},{line,270}]},
+              {sd_reader,login_parse_packet,2,
+                         [{file,"src/sd_reader.erl"},{line,51}]},
+              {proc_lib,init_p_do_apply,3,
+                        [{file,"proc_lib.erl"},{line,249}]}]}
+    offender: [{pid,<0.825.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 7-Dec-2022::23:10:38.625000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.830.0>
+    registered_name: []
+    exception throw: {enotconn}
+      in function  sd_reader:async_recv/3 (src/sd_reader.erl, line 270)
+      in call from sd_reader:login_parse_packet/2 (src/sd_reader.erl, line 51)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.97.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>,#Port<0.21>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 400
+  neighbours:
+
+=SUPERVISOR REPORT==== 7-Dec-2022::23:10:38.625000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {{nocatch,{enotconn}},
+             [{sd_reader,async_recv,3,[{file,"src/sd_reader.erl"},{line,270}]},
+              {sd_reader,login_parse_packet,2,
+                         [{file,"src/sd_reader.erl"},{line,51}]},
+              {proc_lib,init_p_do_apply,3,
+                        [{file,"proc_lib.erl"},{line,249}]}]}
+    offender: [{pid,<0.830.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 7-Dec-2022::23:12:27.051000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.981.0>
+    registered_name: []
+    exception throw: {enotconn}
+      in function  sd_reader:async_recv/3 (src/sd_reader.erl, line 270)
+      in call from sd_reader:login_parse_packet/2 (src/sd_reader.erl, line 51)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.97.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>,#Port<0.22>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 319
+  neighbours:
+
+=SUPERVISOR REPORT==== 7-Dec-2022::23:12:27.051000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {{nocatch,{enotconn}},
+             [{sd_reader,async_recv,3,[{file,"src/sd_reader.erl"},{line,270}]},
+              {sd_reader,login_parse_packet,2,
+                         [{file,"src/sd_reader.erl"},{line,51}]},
+              {proc_lib,init_p_do_apply,3,
+                        [{file,"proc_lib.erl"},{line,249}]}]}
+    offender: [{pid,<0.981.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.505000 ===
+    supervisor: {local,logger_sup}
+    started: [{pid,<0.87.0>},
+              {id,error_logger},
+              {mfargs,{error_logger,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,2000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.509000 ===
+    supervisor: {local,sasl_safe_sup}
+    started: [{pid,<0.90.0>},
+              {id,alarm_handler},
+              {mfargs,{alarm_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.509000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.89.0>},
+              {id,sasl_safe_sup},
+              {mfargs,{supervisor,start_link,
+                                  [{local,sasl_safe_sup},sasl,safe]}},
+              {restart_type,permanent},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.512000 ===
+    supervisor: {local,sasl_sup}
+    started: [{pid,<0.91.0>},
+              {id,release_handler},
+              {mfargs,{release_handler,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,2000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.512000 ===
+    application: sasl
+    started_at: 'sd2@127.0.0.1'
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.551000 ===
+    supervisor: {local,inet_gethost_native_sup}
+    started: [{pid,<0.106.0>},{mfa,{inet_gethost_native,init,[[]]}}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.551000 ===
+    supervisor: {local,kernel_safe_sup}
+    started: [{pid,<0.105.0>},
+              {id,inet_gethost_native_sup},
+              {mfargs,{inet_gethost_native,start_link,[]}},
+              {restart_type,temporary},
+              {shutdown,1000},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.878000 ===
+    application: crypto
+    started_at: 'sd2@127.0.0.1'
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.902000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.119.0>},
+              {id,mod_kernel},
+              {mfargs,{mod_kernel,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.909000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.127.0>},
+              {id,mod_disperse},
+              {mfargs,{mod_disperse,start_link,["127.0.0.1",7788,1]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.910000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.128.0>},
+              {id,mod_rand},
+              {mfargs,{mod_rand,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.911000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.129.0>},
+              {id,sd_tcp_client_sup},
+              {mfargs,{sd_tcp_client_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.912000 ===
+    supervisor: {<0.130.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.131.0>},
+              {id,sd_tcp_acceptor_sup},
+              {mfargs,{sd_tcp_acceptor_sup,start_link,[]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.914000 ===
+    supervisor: {<0.130.0>,sd_tcp_listener_sup}
+    started: [{pid,<0.132.0>},
+              {id,sd_tcp_listener},
+              {mfargs,{sd_tcp_listener,start_link,[10,7788]}},
+              {restart_type,transient},
+              {shutdown,100},
+              {child_type,worker}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.914000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.130.0>},
+              {id,sd_tcp_listener_sup},
+              {mfargs,{sd_tcp_listener_sup,start_link,[7788]}},
+              {restart_type,transient},
+              {shutdown,infinity},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.915000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.143.0>},
+              {id,mod_mon_create},
+              {mfargs,{mod_mon_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.916000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.144.0>},
+              {id,mod_npc_create},
+              {mfargs,{mod_npc_create,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.935000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.145.0>},
+              {id,mod_scene},
+              {mfargs,{mod_scene,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.937000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.592.0>},
+              {id,mod_task},
+              {mfargs,{mod_task,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.941000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.593.0>},
+              {id,mod_guild},
+              {mfargs,{mod_guild,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.946000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.596.0>},
+              {id,mod_pet},
+              {mfargs,{mod_pet,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.947000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.600.0>},
+              {id,mod_mail},
+              {mfargs,{mod_mail,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.948000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.601.0>},
+              {id,mod_rank},
+              {mfargs,{mod_rank,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.952000 ===
+    supervisor: {local,sd_sup}
+    started: [{pid,<0.603.0>},
+              {id,timer_frame},
+              {mfargs,{timer_frame,start_link,[]}},
+              {restart_type,permanent},
+              {shutdown,10000},
+              {child_type,supervisor}]
+=PROGRESS REPORT==== 7-Dec-2022::23:24:58.953000 ===
+    application: server
+    started_at: 'sd2@127.0.0.1'
+=CRASH REPORT==== 8-Dec-2022::00:21:44.867000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.1315.0>
+    registered_name: []
+    exception exit: {unexpected_message,
+                        {inet_async,#Port<0.17>,2,{error,closed}}}
+      in function  sd_reader:login_lost/4 (src/sd_reader.erl, line 234)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.96.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 791
+  neighbours:
+
+=SUPERVISOR REPORT==== 8-Dec-2022::00:21:44.871000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {unexpected_message,{inet_async,#Port<0.17>,2,{error,closed}}}
+    offender: [{pid,<0.1315.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 8-Dec-2022::00:22:14.509000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.1345.0>
+    registered_name: []
+    exception exit: {unexpected_message,{error,no_match}}
+      in function  sd_reader:login_lost/4 (src/sd_reader.erl, line 234)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.96.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 638
+  neighbours:
+
+=SUPERVISOR REPORT==== 8-Dec-2022::00:22:14.509000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {unexpected_message,{error,no_match}}
+    offender: [{pid,<0.1345.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 8-Dec-2022::00:27:00.974000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.1437.0>
+    registered_name: []
+    exception exit: {unexpected_message,{error,no_match}}
+      in function  sd_reader:login_lost/4 (src/sd_reader.erl, line 234)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.96.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 665
+  neighbours:
+
+=SUPERVISOR REPORT==== 8-Dec-2022::00:27:00.975000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {unexpected_message,{error,no_match}}
+    offender: [{pid,<0.1437.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+=CRASH REPORT==== 8-Dec-2022::00:30:39.265000 ===
+  crasher:
+    initial call: sd_reader:init/0
+    pid: <0.1482.0>
+    registered_name: []
+    exception exit: {unexpected_message,{error,no_match}}
+      in function  sd_reader:login_lost/4 (src/sd_reader.erl, line 234)
+    ancestors: [sd_tcp_client_sup,sd_sup,<0.96.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.129.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 679
+  neighbours:
+
+=SUPERVISOR REPORT==== 8-Dec-2022::00:30:39.265000 ===
+    supervisor: {local,sd_tcp_client_sup}
+    errorContext: child_terminated
+    reason: {unexpected_message,{error,no_match}}
+    offender: [{pid,<0.1482.0>},
+               {id,sd_reader},
+               {mfargs,{sd_reader,start_link,undefined}},
+               {restart_type,temporary},
+               {shutdown,brutal_kill},
+               {child_type,worker}]

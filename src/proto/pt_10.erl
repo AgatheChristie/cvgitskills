@@ -7,7 +7,7 @@
 %%%-----------------------------------
 -module(pt_10).
 -export([read/2, write/2]).
-
+-include("common.hrl").
 %%
 %%客户端 -> 服务端 ----------------------------
 %%
@@ -43,7 +43,8 @@ read(10005, <<Id:32>>) ->
 read(10006, _) ->
     {ok, heartbeat};
 
-read(_Cmd, _R) ->
+read(Cmd, Data) ->
+    ?I("Cmd:~p Data:~p end",[Cmd,Data]),
     {error, no_match}.
 
 %%
@@ -82,7 +83,7 @@ write(10002, L) ->
 
 %%创建角色
 write(10003, {Code, PlayerId}) ->
-    io:format("~p~p~n", [Code, PlayerId]),
+    ?I("~p~p~n", [Code, PlayerId]),
     Data = <<Code:16, PlayerId:32>>,
     {ok,  pt:pack(10003, Data)};
 
