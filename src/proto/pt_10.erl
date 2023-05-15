@@ -83,7 +83,6 @@ write(10002, L) ->
 
 %%创建角色
 write(10003, {Code, PlayerId}) ->
-    ?I("~p~p~n", [Code, PlayerId]),
     Data = <<Code:16, PlayerId:32>>,
     {ok,  pt:pack(10003, Data)};
 

@@ -71,20 +71,32 @@ create_role(AccId, AccName, Name, Realm, Career, Sex) ->
     [Hp, Mp | _] = lib_player:one_to_two(Forza, Agile, Wit, Career1),
     Sql = db_sql:make_insert_sql(player, ["accid", "accname", "career", "realm", "sex", "nickname", "reg_time", "last_login_time", "x", "y", "scene", "forza", "agile", "wit", "coin", "silver", "gold", "hp", "mp", "spirit","att_area", "att_speed", "speed", "cell_num"],
         [AccId, AccName, Career1, Realm1, Sex1, Name, Time, Time, X, Y, SceneId, Forza, Agile, Wit, Coin, Silver, Gold, Hp, Mp, Spirit, AttArea, AttSpeed, Speed, CellNum]),
+
     case db_sql:execute(Sql) of
         1 ->
+
             [Id] = lib_player:get_role_id_by_name(Name),
+
             GoodsTypeInfo3 = goods_util:get_ets_info(?ETS_GOODS_TYPE, _GuildJsk),
+
             NewInfo3 = goods_util:transform_goods_type_to_goods(GoodsTypeInfo3),
+
             GoodsInfo3 = NewInfo3#goods{ player_id=Id, location=4, cell=1, num=50 },
+
             (catch lib_goods:add_goods(GoodsInfo3)),
+
             %% 送5个宠物
             GoodsTypeInfo4 = goods_util:get_ets_info(?ETS_GOODS_TYPE, _PetEgg),
+
             NewInfo4 = goods_util:transform_goods_type_to_goods(GoodsTypeInfo4),
+
             GoodsInfo4 = NewInfo4#goods{ player_id=Id, location=4, cell=2, num=5 },
+
             (catch lib_goods:add_goods(GoodsInfo4)),
+
             {true, Id};
         _Other ->
+            ?I("qqqq:~p end",[_Other]),
             false
     end.
 

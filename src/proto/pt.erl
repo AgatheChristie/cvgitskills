@@ -58,3 +58,7 @@ pack_mon_list(Mon) ->
 pack(Cmd, Data) ->
     L = byte_size(Data) + 4,
     <<L:16, Cmd:16, Data/binary>>.
+  %% youyou课堂对接协议格式
+  %%  Data2 = <<Cmd:16, Data/binary>>,
+  %%  L = byte_size(Data2) + 2,
+  %%  <<L:16, Data2/binary>>.

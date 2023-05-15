@@ -6,9 +6,10 @@
 %%% @Description:用户账户管理
 %%%--------------------------------------
 -module(pp_account).
--export([handle/3]).
+-compile(export_all).
 -include("common.hrl").
 -include("record.hrl").
+
 
 %%登陆验证
 handle(10000, [], Data) ->
@@ -20,33 +21,32 @@ handle(10000, [], Data) ->
     end;
 
 %% 获取角色列表
-handle(10002, Socket, Accname)
-    when is_list(Accname) ->
+handle(10002, Socket, Accname) when is_list(Accname) ->
     L = lib_account:get_role_list(Accname),
     {ok, BinData} = pt_10:write(10002, L),
     lib_send:send_one(Socket, BinData);
 
 %% 创建角色
 handle(10003, Socket, [Accid, Accname, Realm, Career, Sex, Name]) when is_list(Accname), is_list(Name) ->
-    ?I("create role ~p~n", [[Accid, Accname, Realm, Career, Sex, Name]]),
-    case validate_name(Name) of  %% 角色名合法性检测
+    case pp_account:validate_name(Accname, Name) of  %% 角色名合法性检测
         {false, Msg} ->
-            ?I("qqqq:~p end", [Msg]),
             {ok, BinData} = pt_10:write(10003, {Msg, 0}),
             lib_send:send_one(Socket, BinData);
         true ->
             case lib_account:create_role(Accid, Accname, Name, Realm, Career, Sex) of
                 {true, Id} ->
-                    ?I("qqqq:~p end", [true]),
                     %%创建角色成功
                     {ok, BinData} = pt_10:write(10003, {1, Id}),
                     lib_send:send_one(Socket, BinData);
                 false ->
-                    ?I("qqqq:~p end", [false]),
                     %%角色创建失败
                     {ok, BinData} = pt_10:write(10003, {0, 0}),
-                    lib_send:send_one(Socket, BinData)
-            end
+                    lib_send:send_one(Socket, BinData);
+                _E ->
+                    ?I("Err:~p end", [_E])
+            end;
+        _E ->
+            ?I("Err:~p end", [_E])
     end;
 
 %% 删除角色
@@ -79,16 +79,15 @@ is_bad_pass([_Accid, _Accname, _Tstamp, _Ts]) ->
     true.
 
 %% 角色名合法性检测
-validate_name(Name) ->
-    validate_name(len, Name).
+validate_name(Accname, Name) ->
+    validate_name(len, Accname, Name).
 
 %% 角色名合法性检测:长度
-validate_name(len, Name) ->
-    ?I("~p~n", [Name]),
+validate_name(len, Accname, Name) ->
     Len = string_width(Name),
     case Len < 11 andalso Len > 1 of
         true ->
-            validate_name(existed, Name);
+            validate_name(existed, Accname, Name);
         false ->
             %%角色名称长度为1~5个汉字
             {false, 5}
@@ -97,16 +96,24 @@ validate_name(len, Name) ->
 
 %%判断角色名是否已经存在
 %%Name:角色名
-validate_name(existed, Name) ->
+%%AccName:AccName
+validate_name(existed, Accname, Name) ->
     case lib_player:is_exists(Name) of
         true ->
             %角色名称已经被使用
             {false, 3};
         false ->
             true
+    end,
+    case lib_player:is_accname_exists(Accname) of
+        true ->
+            %Accname名称已经被使用
+            {false, 6};
+        false ->
+            true
     end;
 
-validate_name(_, _Name) ->
+validate_name(_, _Accname, _Name) ->
     {false, 2}.
 
 %% 字符宽度，1汉字=2单位长度，1数字字母=1单位长度

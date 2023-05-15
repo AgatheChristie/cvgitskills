@@ -20,15 +20,19 @@ handle(10001, Status, logout) ->
 handle(10006, Status, heartbeat) ->
     %%todo:测试数据而已
     %% 通过心跳包回血回蓝
-    case Status#player_status.hp >0 andalso (Status#player_status.hp < Status#player_status.hp_lim orelse Status#player_status.mp < Status#player_status.mp_lim) of
+    case Status#player_status.hp >0
+        andalso
+        (Status#player_status.hp < Status#player_status.hp_lim orelse Status#player_status.mp < Status#player_status.mp_lim) of
         true ->
-            Hp = if
+            Hp =
+                if
                 Status#player_status.hp + 50 > Status#player_status.hp_lim ->
                     Status#player_status.hp_lim;
                 true ->
                     Status#player_status.hp + 50
             end,
-            Mp = if
+            Mp =
+                if
                 Status#player_status.mp + 50 > Status#player_status.mp_lim ->
                     Status#player_status.mp_lim;
                 true ->
